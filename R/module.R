@@ -43,8 +43,8 @@ module <- function(path) {
 }
 
 module_ <- function(path) {
-  if (package_exists(path)) {
-    object <- package(path)
+  if (is.installed_package(path)) {
+    object <- package(path, check_installed = FALSE)
   } else {
     object <- file(path)
   }

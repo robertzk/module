@@ -4,12 +4,18 @@
 \alias{package}
 \title{An S3 class representing metadata about a package.}
 \usage{
-package(name)
+package(name, check_installed = TRUE)
 }
 \arguments{
 \item{name}{character. The name of the package. It
 must be installed in the user's currently active
 library.}
+
+\item{check_installed}{logical. Check whether the
+package is installed or not, by default \code{TRUE}.}
+}
+\value{
+An S3 \code{package} object.
 }
 \description{
 An S3 class representing metadata about a package.

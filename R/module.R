@@ -1,4 +1,25 @@
 # TODO: (RK) Dcoument modules more extensively.
+## Typical modularization of R code is done through [packages](http://r-pkgs.had.co.nz/).
+## However, packages have a few design limitations that prevents
+## their widespread use by developers.
+##
+##   1. Packages do not solve the problem of hierarchical namespacing.
+##      In particular, languages like Ruby have good support for
+##      a primitive called a [module](http://ruby-doc.org/core-2.2.0/Module.html) and
+##      C++ has a primitive term a [namespace](https://en.wikipedia.org/wiki/Namespace).;
+##      R, despite being a functional languages with roots to the [LISP](https://en.wikipedia.org/wiki/LISP)
+##      currently does not have a good hierachical namespacing system.
+##   2. Hierarchical file structures and exports. In particular, R packages
+##      are limited to flat directory structures for historical reasons
+##      decided by the R core team.
+##
+## Both of these limitations are legitimate problems because organizing
+## large codebases managed by teams of dozens or hundreds of developers
+## is difficult or unpleasant without a sane hierarchical namespacing system.
+## 
+## **Modules** aim to partially allay this problem by building a hierarchical
+## namespacing mechanism on top of [environments](http://adv-r.had.co.nz/Environments.html),
+## a well-defined and well-understood primitive data structure in R.
 #' Load and attach an R module in the current environment.
 #'
 #' Modules are light wrappers around environments that provide

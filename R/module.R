@@ -39,17 +39,15 @@ module <- function(path) {
     stop(m("invalid_module_character_path"))
   }
 
-  module_(path)
+  module_new(path2module_object(path))
 }
 
-module_ <- function(path) {
+path2module_object <- function(path) {
   if (is.installed_package(path)) {
-    object <- package(path, check_installed = FALSE)
+    package(path, check_installed = FALSE)
   } else {
-    object <- file(path)
+    file(path)
   }
-
-  module_new(object)
 }
 
 module_new <- function(object) {

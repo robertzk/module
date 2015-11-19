@@ -34,5 +34,13 @@ describe("Interfacing with directories", {
       expect_is(module(tempdir), "module")
     })
   })
+
+  test_that("it recognizes a module derived from a directory name as a file module", {
+    test_that("it can build a module from the base package", {
+      testthatsomemore::within_file_structure(list("a" = "a <- function(x) x + 1"), {
+        expect_equal(module(tempdir)$type, "file")
+      })
+    })
+  })
 })
 

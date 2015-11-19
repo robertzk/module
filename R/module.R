@@ -55,7 +55,7 @@ module_new <- function(object) {
 }
 
 module_new.file <- function(object) {
-  NULL
+  build_module(object, dirname(object), "file")
 }
 
 module_new.package <- function(object) {

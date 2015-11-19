@@ -6,4 +6,6 @@ is.simple_string <- function(x) {
 }
 
 file <- function(path) {
+  structure(path, class = "file")
 }
+

@@ -59,13 +59,14 @@ module_new.file <- function(object) {
 }
 
 module_new.package <- function(object) {
-  build_module(getNamespace(object$name), object$name)
+  build_module(getNamespace(object$name), object$name, "package")
 }
 
-build_module <- function(env, name) {
+build_module <- function(env, name, type) {
   structure(list(
     name = name,
-    env  = env
+    env  = env,
+    type = type
   ), class = "module")
 }
 

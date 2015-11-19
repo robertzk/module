@@ -12,6 +12,11 @@ messages <- list(
     " function: I expected a non-NA non-blank character vector
     of length 1"),
 
+  invalid_module_filepath = c("Invalid path passed to the ",
+    sQuote("path"), " parameter to the ", sQuote("module"),
+    " function: the path ", sQuote(crayon::red("{{{path}}}")),
+    " does not exist."),
+
   non_installed_package = c("The package ", crayon::red("{{{pkgname}}}"),
     " is not installed in your current library (see ", sQuote(".libPaths()"),
     "). Please install it if you wish to use it with a module.")

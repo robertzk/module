@@ -29,16 +29,33 @@ describe("Interfacing with packages", {
 })
 
 describe("Interfacing with directories", {
+  describe("Failure cases", {
+    suppressWarnings({
+      test_that("it fails to construct a file module if the file does not exist", {
+        expect_error(
+          module("/please/dont/make/a/file/like/this/on/your/system/or/this/test/will/fail"),
+          "does not exist"
+        )
+      })
+    })
+  })
+
   test_that("it can construct a module from a simple directory", {
-    testthatsomemore::within_file_structure(list("a" = "a <- function(x) x + 1"), {
-      expect_is(module(tempdir), "module")
+    suppressWarnings({
+      testthatsomemore::within_file_structure(list("a" = "a <- function(x) x + 1"), {
+        dir.create(tempdir)                                            
+        expect_is(module(tempdir), "module")
+      })
     })
   })
 
   test_that("it recognizes a module derived from a directory name as a file module", {
     test_that("it can build a module from the base package", {
-      testthatsomemore::within_file_structure(list("a" = "a <- function(x) x + 1"), {
-        expect_equal(module(tempdir)$type, "file")
+      suppressWarnings({
+        testthatsomemore::within_file_structure(list("a" = "a <- function(x) x + 1"), {
+          dir.create(tempdir)                                            
+          expect_equal(module(tempdir)$type, "file")
+        })
       })
     })
   })

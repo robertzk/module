@@ -55,7 +55,11 @@ module_new <- function(object) {
 }
 
 module_new.file <- function(object) {
-  build_module(object, dirname(object), "file")
+  if (!file.exists(object)) {
+    stop(m("invalid_module_filepath", path = object))
+  }
+
+  build_module(construct_env_from_dir(object), dirname(object), "file")
 }
 
 module_new.package <- function(object) {
@@ -64,9 +68,14 @@ module_new.package <- function(object) {
 
 build_module <- function(env, name, type) {
   structure(list(
-    name = name,
     env  = env,
+    name = name,
     type = type
   ), class = "module")
+}
+
+construct_env_from_dir <- function(dir) {
+  # TODO: (RK) Build the module.
+  new.env()
 }
 

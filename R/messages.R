@@ -9,7 +9,7 @@ messages <- list(
 
   invalid_module_character_path = c("Invalid path passed to the ",
     sQuote("path"), " parameter to the ", sQuote("module"),
-    " function: I expected an non-NA non-blank character vector
+    " function: I expected a non-NA non-blank character vector
     of length 1")
 )
 

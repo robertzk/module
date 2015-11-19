@@ -13,3 +13,11 @@ describe("Failure cases", {
   })
 })
 
+describe("Interfacing with packages", {
+  test_that("it can construct a module from a package name", {
+    test_that("it can build a module from the base package", {
+      expect_is(module("base"), "module")
+    })
+  })
+})
+

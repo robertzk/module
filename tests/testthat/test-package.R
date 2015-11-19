@@ -11,3 +11,4 @@ describe("Trivial asserts", {
   test_that("it does not fail if the package is installed", {
     testthatsomemore::assert(package("base")) })
 })
+

@@ -10,6 +10,5 @@
 #'   directory given by the path will be loaded as a module.
 #' @return a \code{module} object.
 module <- function(path) {
-
+  
 }
-

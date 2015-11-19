@@ -10,5 +10,8 @@
 #'   directory given by the path will be loaded as a module.
 #' @return a \code{module} object.
 module <- function(path) {
-  
+  if (!is.character(path)) {
+    stop(m("invalid_module_path", klass = class(path)[1L]))
+  }
 }
+

@@ -17,5 +17,29 @@ module <- function(path) {
   if (!is.simple_string(path)) {
     stop(m("invalid_module_character_path"))
   }
+
+  module_(path)
+}
+
+module_ <- function(path) {
+  if (package_exists(path)) {
+    object <- package(path)
+  } else {
+    object <- file(path)
+  }
+
+  module_new(object)
+}
+
+module_new <- function(object) {
+  UseMethod("module_new")
+}
+
+module_new.file <- function(object) {
+  NULL
+}
+
+module_new.package <- function(object) {
+  NULL
 }
 

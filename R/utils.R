@@ -5,3 +5,5 @@ is.simple_string <- function(x) {
   !is.na(x) && nzchar(x)
 }
 
+file <- function(path) {
+}

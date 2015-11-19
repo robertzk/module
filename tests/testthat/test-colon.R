@@ -9,3 +9,12 @@ describe("Fail cases", {
   })
 })
 
+describe("Trivial checks", {
+  test_that("it continues working on numerical inputs", {
+    numbers <- list(1L, 2.0, 3.0 + 3.0i)
+    lapply(numbers, function(x) lapply(numbers, function(y) {
+      expect_equal(suppressWarnings(x:y), suppressWarnings(.Primitive(":")(x, y)))
+    }))
+  })
+})
+

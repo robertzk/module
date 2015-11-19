@@ -8,8 +8,8 @@ their widespread use by developers.
   1. Packages do not solve the problem of hierarchical namespacing.
      In particular, languages like Ruby have good support for
      a primitive called a [module](http://ruby-doc.org/core-2.2.0/Module.html) and
-     C++ has a primitive term a [namespace](https://en.wikipedia.org/wiki/Namespace).;
-     R, despite being a functional languages with roots to the [LISP](https://en.wikipedia.org/wiki/LISP)
+     C++ has a primitive termed a [namespace](https://en.wikipedia.org/wiki/Namespace);
+     R, despite being a functional language with roots to the [LISP](https://en.wikipedia.org/wiki/LISP)
      currently does not have a good hierachical namespacing system.
   2. Hierarchical file structures and exports. In particular, R packages
      are limited to flat directory structures for historical reasons

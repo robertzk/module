@@ -9,3 +9,7 @@ file <- function(path) {
   structure(path, class = "file")
 }
 
+is.installed_package <- function(package) {
+  is.element(package, utils::installed.packages()[, 1L])
+}
+

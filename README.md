@@ -1,4 +1,4 @@
-Namespacing in R [![Build Status](https://travis-ci.org/robertzk/module.svg?branch=master)](https://travis-ci.org/robertzk/r-package-template) [![Coverage Status](https://coveralls.io/repos/robertzk/r-package-template/badge.svg?branch=master)](https://coveralls.io/r/robertzk/module)
+Namespacing in R [![Build Status](https://travis-ci.org/robertzk/module.svg?branch=master)](https://travis-ci.org/robertzk/module) [![Coverage Status](https://coveralls.io/repos/robertzk/module/badge.svg?branch=master)](https://coveralls.io/r/robertzk/module)
 ============
 
 Typical modularization of R code is done through [packages](http://r-pkgs.had.co.nz/).

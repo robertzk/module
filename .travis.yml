@@ -1,0 +1,31 @@
+sudo: required
+language: c
+before_install:
+- curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+- chmod 755 ./travis-tool.sh
+- "./travis-tool.sh bootstrap"
+install:
+- "./travis-tool.sh install_deps"
+- "./travis-tool.sh install_r testthat"
+- "./travis-tool.sh install_github jimhester/covr"
+script: "./travis-tool.sh run_tests"
+after_failure:
+- "./travis-tool.sh dump_logs"
+after_success:
+- Rscript -e 'library(covr);coveralls()'
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+  hipchat:
+    rooms:
+      secure: dWFwo6zuxdrK9UFw92P2/pT7NOwwDH5dDQ1Mtc0jdYXlSttNjm7t7DTtYhL5isCSi2z+Ot0pu6EKfZ6ILEsGNRQY5FRDWxrdyfPhORz2iZFldCgTRzuVRuiiIYdHcTt6cxIDXO+pfgp5eRbzYttRYbKKLPL0ys53iZdirzrcOs3vKD/CfKw0NcMz8JNb7FQO1nRDyFuVJoX+97q9mI7Jq2PE79DP+H+vwBxBq0V6YtYYPfRKWAZH1tjj7eDRyhDhm7GG0c6wEDMNJGoBmzZbUycSFCouLmkPvcXvLv+IMWPXnkjR+mEBiDh2OaX6AIWoZmT9U9oYp/kfDeZPVfrg+fXunFchncChV6OU8HFtFwkcl/mH1ADPlhFHy2zl2R+Id1ZryUTe+fpqw8xzTu9AG6dyXD0z4ZUXpC7cKrUisInM8aGPOjiFY1UOYjqXZt4hzSj1DI8dSIkCv/3CxEqZCL/NP1zWMX4JzttWA3TuAe6xM+KAFIaL/1U1yJ7UY6jHzXCjU0mrh2SBKbJAE07l6FHouRWYAs6StwEVN0EqvBmTNx9Gg2doptEd79rI3c2GyXbfLfKvxMtPmheXApSUCGiPDK780PZu33R7I6HFUWPUg+cCAW04xBtT10m5e1g9q+yTlFZZPVeMqJ6CpOONhjk3mU8ifsmTqmk4cbJqELE=
+    on_success: change
+    on_failure: change
+    template:
+    - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}
+      | Details: %{build_url} | Changes: %{compare_url}"
+env:
+- global:
+  - WARNINGS_ARE_ERRORS=1
+  - _R_CHECK_FORCE_SUGGESTS_=0

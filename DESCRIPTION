@@ -16,6 +16,7 @@ Imports:
 Suggests:
     knitr,
     microbenchmark,
-    testthat
+    testthat,
+    testthatsomemore
 Roxygen: list(wrap = FALSE)
 RoxygenNote: 5.0.1

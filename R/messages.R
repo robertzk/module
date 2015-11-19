@@ -5,7 +5,12 @@ messages <- list(
   invalid_module_path = c("Invalid path passed to the ",
     sQuote("path"), " parameter to the ", sQuote("module"),
     " function: I received a ", crayon::red("{{{klass}}}"), 
-    " but was expecting a ", crayon::yellow("character"), ".")
+    " but was expecting a ", crayon::yellow("character"), "."),
+
+  invalid_module_character_path = c("Invalid path passed to the ",
+    sQuote("path"), " parameter to the ", sQuote("module"),
+    " function: I expected an non-NA non-blank character vector
+    of length 1")
 )
 
 ## Cleanse the message a little after fetching it from the `messages` list.

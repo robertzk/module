@@ -13,5 +13,9 @@ module <- function(path) {
   if (!is.character(path)) {
     stop(m("invalid_module_path", klass = class(path)[1L]))
   }
+  
+  if (!is.simple_character_vector(path)) {
+    stop(m("invalid_module_string"))
+  }
 }
 
